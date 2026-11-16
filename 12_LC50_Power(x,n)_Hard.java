@@ -4,18 +4,21 @@ class Solution {
         long power = n;
 
         if (power < 0) {
+            x = 1.0 / x;
             power = -power;
-            x = 1 / x;
         }
-        double result = 1;
+
+        double result = 1.0;
+
         while (power > 0) {
 
             if (power % 2 == 1) {
                 result = result * x;
+                power--;
+            } else {
+                x = x * x;
+                power = power / 2;
             }
-
-            x = x * x;
-            power = power / 2;
         }
 
         return result;
